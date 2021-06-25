@@ -1,0 +1,42 @@
+{
+  "name": "First Extension",
+  "description": "Trial for chrom extension",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "hello.html",
+    "default_icon": "./images/hello.png",
+    "default_title": "Hello, click me!"
+  },
+  "background": {
+    "service_worker": "bg.js"
+  },
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "omnibox": { "keyword": "aaron" },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl + Shift + F",
+        "mac": "MacCtrl + Shift + F"
+      },
+      "description": "Opens hello.html"
+    },
+    "flip": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+5"
+      },
+      "description": "Flip tabs",
+      "global": true
+    }
+  },
+  "permissions": [
+    
+  ],
+  "devtools_page": "./devtool/devtools.html"
+}
